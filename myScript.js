@@ -164,7 +164,7 @@ function onChange(temp){
         var num = temp.selectedIndex + 1;
         var div = temp.parentNode;
         var numbOfInputs = div.getElementsByTagName("p").length;
-        if ( num != 0 ){
+        if ( num != 1 ){
                                                         // if current number of inputs is bigger than previous
             if ( num > numbOfInputs ){                  // add remainder inputs
                 for (var k = numbOfInputs; k < num; k++){
@@ -183,6 +183,12 @@ function onChange(temp){
                     div.removeChild(last);
                 }
                
+            }
+        }
+		else {                                          // if we select one input, than remove all inputs
+            for (var k = 0; k < numbOfInputs; k++){
+                var last = div.lastChild;
+                div.removeChild(last);
             }
         }
     }
